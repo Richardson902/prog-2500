@@ -1,0 +1,6 @@
+G:\.School\Year-2\Semester-2\PROG2500-CSharp\prog-2500\M00_C_Sharp_Intro\Lesson_01_Hello_Console\Hello_Console\bin\Debug\Hello_Console.exe
+G:\.School\Year-2\Semester-2\PROG2500-CSharp\prog-2500\M00_C_Sharp_Intro\Lesson_01_Hello_Console\Hello_Console\bin\Debug\Hello_Console.pdb
+G:\.School\Year-2\Semester-2\PROG2500-CSharp\prog-2500\M00_C_Sharp_Intro\Lesson_01_Hello_Console\Hello_Console\obj\Debug\Hello_Console.csproj.AssemblyReference.cache
+G:\.School\Year-2\Semester-2\PROG2500-CSharp\prog-2500\M00_C_Sharp_Intro\Lesson_01_Hello_Console\Hello_Console\obj\Debug\Hello_Console.csproj.CoreCompileInputs.cache
+G:\.School\Year-2\Semester-2\PROG2500-CSharp\prog-2500\M00_C_Sharp_Intro\Lesson_01_Hello_Console\Hello_Console\obj\Debug\Hello_Console.exe
+G:\.School\Year-2\Semester-2\PROG2500-CSharp\prog-2500\M00_C_Sharp_Intro\Lesson_01_Hello_Console\Hello_Console\obj\Debug\Hello_Console.pdb
