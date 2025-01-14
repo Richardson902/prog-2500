@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\hello_console\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|solutionrelative:hello_console\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|g:\\.school\\year-2\\semester-2\\prog2500-csharp\\prog-2500\\m00_c_sharp_intro\\lesson_06_abstract_class\\hello_console\\chicken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|solutionrelative:hello_console\\chicken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\hello_console\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|solutionrelative:hello_console\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\hello_console\\superdog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,8 +15,12 @@
       "RelativeMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|solutionrelative:hello_console\\dog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\hello_console\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|solutionrelative:hello_console\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|g:\\.school\\year-2\\semester-2\\prog2500-csharp\\prog-2500\\m00_c_sharp_intro\\lesson_06_abstract_class\\hello_console\\chicken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|solutionrelative:hello_console\\chicken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\hello_console\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ADF47CA-ED1E-4DCB-81F9-A4E8F5555736}|Hello_Console\\Hello_Console.csproj|solutionrelative:hello_console\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Dog.cs",
               "DocumentMoniker": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\Dog.cs",
               "RelativeDocumentMoniker": "Hello_Console\\Dog.cs",
               "ToolTip": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\Dog.cs",
               "RelativeToolTip": "Hello_Console\\Dog.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T15:26:41.701Z",
               "IsPinned": true,
@@ -48,52 +48,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "SuperDog.cs",
               "DocumentMoniker": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\SuperDog.cs",
               "RelativeDocumentMoniker": "Hello_Console\\SuperDog.cs",
               "ToolTip": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\SuperDog.cs",
               "RelativeToolTip": "Hello_Console\\SuperDog.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAsAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-08T16:27:47.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Chicken.cs",
               "DocumentMoniker": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\Chicken.cs",
               "RelativeDocumentMoniker": "Hello_Console\\Chicken.cs",
               "ToolTip": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\Chicken.cs",
               "RelativeToolTip": "Hello_Console\\Chicken.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-08T16:21:21.938Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Animal.cs",
               "DocumentMoniker": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\Animal.cs",
               "RelativeDocumentMoniker": "Hello_Console\\Animal.cs",
               "ToolTip": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\Animal.cs",
               "RelativeToolTip": "Hello_Console\\Animal.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAA8wA4AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T14:33:13.682Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\Program.cs",
               "RelativeDocumentMoniker": "Hello_Console\\Program.cs",
-              "ToolTip": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\Program.cs*",
-              "RelativeToolTip": "Hello_Console\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAkAAAAAAAAAA==",
+              "ToolTip": "G:\\.School\\Year-2\\Semester-2\\PROG2500-CSharp\\prog-2500\\M00_C_Sharp_Intro\\Lesson_06_Abstract_Class\\Hello_Console\\Program.cs",
+              "RelativeToolTip": "Hello_Console\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T14:32:58.146Z",
               "EditorCaption": ""
