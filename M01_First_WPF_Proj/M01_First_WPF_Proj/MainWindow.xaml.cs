@@ -12,9 +12,6 @@ using System.Windows.Media.Imaging;
 namespace M01_First_WPF_Proj
 {
 
-    // TODO: If checkbox unchecked, use last indexed value to display hair part
-    // TODO: Maybe parse the last digit of the name as an int and pass it into array for the hair_01 etc.
-
     public partial class MainWindow : Window
     {
         List<BitmapImage> hairImages = new List<BitmapImage>();
@@ -198,6 +195,7 @@ namespace M01_First_WPF_Proj
 
         private void OnSliderChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            // Check if first time run to avoid out of range index - why is this a thing
             if (isFirstRun)
             {
                 isFirstRun = false;
@@ -237,12 +235,16 @@ namespace M01_First_WPF_Proj
             UpdateSlider(mouthIndex);
         }
 
+        // Displays currently drawn images on the forums
         private void UpdateCheckboxes(int hairIndex)
         {
             foreach (var child in hairCheckboxes.Children)
             {
                 if (child is CheckBox checkBox)
+                    
                 {
+                    selectedCheckboxes.Remove(checkBox); // Fix for weirdness with keeping track of checkboxes in the array
+
                     if (checkBox.Content.ToString() == (hairIndex + 1).ToString())
                     {
                         checkBox.IsChecked = true;
