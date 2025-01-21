@@ -15,9 +15,9 @@
                     <Border BorderBrush="red"  BorderThickness="2" Margin="10" Height="120" Width="120">
                         <StackPanel>
                             <Label Content="Hairstyle" Width="76" Margin="10" HorizontalContentAlignment="Center"/>
-                            <CheckBox x:Name="hair_01" Content="Hair 1" HorizontalAlignment="Center" Click="OnCheckClicked"/>
-                            <CheckBox x:Name="hair_02" Content="Hair 2" HorizontalAlignment="Center" Margin="10" Click="OnCheckClicked"/>
-                            <CheckBox x:Name="hair_03" Content="Hair 3" HorizontalAlignment="Center" Click="OnCheckClicked"/>
+                            <CheckBox x:Name="hair_01" Content="1" HorizontalAlignment="Center" Click="OnCheckClicked"/>
+                            <CheckBox x:Name="hair_02" Content="2" HorizontalAlignment="Center" Margin="10" Click="OnCheckClicked"/>
+                            <CheckBox x:Name="hair_03" Content="3" HorizontalAlignment="Center" Click="OnCheckClicked"/>
                         </StackPanel>
                     </Border>
                     <Border BorderBrush="red" BorderThickness="2" Margin="10" Height="120" Width="120">

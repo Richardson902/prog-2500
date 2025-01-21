@@ -142,11 +142,7 @@ namespace M01_First_WPF_Proj
         {
             if (sender is CheckBox clickedBox)
             {
-                // Parse the name of the box to get the index value and set it
-                Match match = Regex.Match(clickedBox.Name, @"\d+");
-                if (match.Success)
-                {
-                    hairIndex = int.Parse(match.Value) - 1;
+                hairIndex = int.Parse(clickedBox.Content.ToString()) - 1;
 
                     if (clickedBox.IsChecked == true)
                     {
@@ -165,16 +161,12 @@ namespace M01_First_WPF_Proj
                         if (selectedCheckboxes.Count > 0)
                         {
                             // Get the last selected checkbox
-                            string lastSelected = selectedCheckboxes[selectedCheckboxes.Count - 1].Name;
+                            string lastSelected = selectedCheckboxes[selectedCheckboxes.Count - 1].Content.ToString();
 
                             // Parse the index value from the last selected name
-                            match = Regex.Match(lastSelected, @"\d+");
-                            if (match.Success)
-                            {
-                                hairIndex = int.Parse(match.Value) - 1;
-                                updateHair = true;
-                                MyImageMethod();
-                            }
+                            hairIndex = int.Parse(lastSelected) - 1;
+                            updateHair = true;
+                            MyImageMethod();
                         }
                         else
                         {
@@ -182,7 +174,6 @@ namespace M01_First_WPF_Proj
                             updateHair = false;
                         }
                     }
-                }
             }
         }
 
