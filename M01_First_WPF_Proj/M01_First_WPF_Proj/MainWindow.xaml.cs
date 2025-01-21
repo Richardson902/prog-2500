@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 namespace M01_First_WPF_Proj
 {
+
+    // TODO: If checkbox unchecked, use last indexed value to display hair part
+    // TODO: Maybe parse the last digit of the name as an int and pass it into array for the hair_01 etc.
 
     public partial class MainWindow : Window
     {
@@ -15,6 +20,8 @@ namespace M01_First_WPF_Proj
         List<BitmapImage> eyeImages = new List<BitmapImage>();
         List<BitmapImage> noseImages = new List<BitmapImage>();
         List<BitmapImage> mouthImages = new List<BitmapImage>();
+
+        private List<CheckBox> selectedCheckboxes = new List<CheckBox>();
 
         private int hairIndex = -1;
         private int eyeIndex = -1;
@@ -127,6 +134,54 @@ namespace M01_First_WPF_Proj
             if (sender is Button clickedButton)
             {
                 HandleButtonPress(clickedButton);
+            }
+        }
+
+        private void OnCheckClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender is CheckBox clickedBox)
+            {
+                // Parse the name of the box to get the index value and set it
+                Match match = Regex.Match(clickedBox.Name, @"\d+");
+                if (match.Success)
+                {
+                    hairIndex = int.Parse(match.Value) - 1;
+
+                    if (clickedBox.IsChecked == true)
+                    {
+                        // Keep track of what boxes are selected
+                        selectedCheckboxes.Add(clickedBox);
+                        updateHair = true;
+                        MyImageMethod();
+
+                    }
+                    else
+                    {
+                        // If deselected, remove from list
+                        selectedCheckboxes.Remove(clickedBox);
+
+                        // Check if list is populated
+                        if (selectedCheckboxes.Count > 0)
+                        {
+                            // Get the last selected checkbox
+                            string lastSelected = selectedCheckboxes[selectedCheckboxes.Count - 1].Name;
+
+                            // Parse the index value from the last selected name
+                            match = Regex.Match(lastSelected, @"\d+");
+                            if (match.Success)
+                            {
+                                hairIndex = int.Parse(match.Value) - 1;
+                                updateHair = true;
+                                MyImageMethod();
+                            }
+                        }
+                        else
+                        {
+                            // If nothing in list, don't update
+                            updateHair = false;
+                        }
+                    }
+                }
             }
         }
 
