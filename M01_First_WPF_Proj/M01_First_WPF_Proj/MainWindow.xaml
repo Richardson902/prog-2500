@@ -35,8 +35,9 @@
                     <Border BorderBrush="red" BorderThickness="2" Margin="10" Height="120" Width="120">
                         <StackPanel>
                             <Label Content="Nose" Width="76" Margin="10" HorizontalContentAlignment="Center"/>
-                            <Button x:Name="nose_next" Content="Next" Width="76" Margin="10" Click="OnButtonClicked"/>
-                            <Button x:Name="nose_prev" Content="Previous" Width="76" Click="OnButtonClicked"/>
+                            <RadioButton Content="1" HorizontalAlignment="Center" Checked="OnRadioChecked"/>
+                            <RadioButton Content="2" HorizontalAlignment="Center" Margin="10" Checked="OnRadioChecked"/>
+                            <RadioButton Content="3" HorizontalAlignment="Center" Checked="OnRadioChecked"/>
                         </StackPanel>
                     </Border>
                     <Border BorderBrush="red" BorderThickness="2" Margin="10" Height="120" Width="120">

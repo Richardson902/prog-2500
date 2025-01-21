@@ -144,36 +144,36 @@ namespace M01_First_WPF_Proj
             {
                 hairIndex = int.Parse(clickedBox.Content.ToString()) - 1;
 
-                    if (clickedBox.IsChecked == true)
+                if (clickedBox.IsChecked == true)
+                {
+                    // Keep track of what boxes are selected
+                    selectedCheckboxes.Add(clickedBox);
+                    updateHair = true;
+                    MyImageMethod();
+
+                }
+                else
+                {
+                    // If deselected, remove from list
+                    selectedCheckboxes.Remove(clickedBox);
+
+                    // Check if list is populated
+                    if (selectedCheckboxes.Count > 0)
                     {
-                        // Keep track of what boxes are selected
-                        selectedCheckboxes.Add(clickedBox);
+                        // Get the last selected checkbox
+                        string lastSelected = selectedCheckboxes[selectedCheckboxes.Count - 1].Content.ToString();
+
+                        // Parse the index value from the last selected name
+                        hairIndex = int.Parse(lastSelected) - 1;
                         updateHair = true;
                         MyImageMethod();
-
                     }
                     else
                     {
-                        // If deselected, remove from list
-                        selectedCheckboxes.Remove(clickedBox);
-
-                        // Check if list is populated
-                        if (selectedCheckboxes.Count > 0)
-                        {
-                            // Get the last selected checkbox
-                            string lastSelected = selectedCheckboxes[selectedCheckboxes.Count - 1].Content.ToString();
-
-                            // Parse the index value from the last selected name
-                            hairIndex = int.Parse(lastSelected) - 1;
-                            updateHair = true;
-                            MyImageMethod();
-                        }
-                        else
-                        {
-                            // If nothing in list, don't update
-                            updateHair = false;
-                        }
+                        // If nothing in list, don't update
+                        updateHair = false;
                     }
+                }
             }
         }
 
@@ -190,6 +190,18 @@ namespace M01_First_WPF_Proj
 
             }
 
+        }
+
+        private void OnRadioChecked(object sender, RoutedEventArgs e)
+        {
+            if (sender is RadioButton checkedButton)
+            {
+
+                noseIndex = int.Parse(checkedButton.Content.ToString()) - 1;
+                updateNose = true;
+                MyImageMethod();
+   
+            }
         }
 
         // Method to update the respective index based on what button was pressed (should clean up).
