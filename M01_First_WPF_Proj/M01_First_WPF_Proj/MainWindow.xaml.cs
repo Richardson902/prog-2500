@@ -33,6 +33,7 @@ namespace M01_First_WPF_Proj
         private bool updateEyes = false;
         private bool updateNose = false;
         private bool updateMouth = false;
+        private bool isFirstRun = true;
 
         Random random = new Random();
 
@@ -201,6 +202,29 @@ namespace M01_First_WPF_Proj
                 updateNose = true;
                 MyImageMethod();
    
+            }
+        }
+
+        private void OnSliderChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (isFirstRun)
+            {
+                isFirstRun = false;
+                return;
+            }
+
+            if (sender is Slider mouthSlider)
+            {
+                if (mouthSlider.Value > 0)
+                {
+                    mouthIndex = int.Parse(mouthSlider.Value.ToString()) - 1;
+                    updateMouth = true;
+                    MyImageMethod();
+                }
+                else
+                {
+                    mouthIndex = 0;
+                }
             }
         }
 
