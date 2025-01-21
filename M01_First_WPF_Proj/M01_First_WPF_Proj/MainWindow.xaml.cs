@@ -130,15 +130,6 @@ namespace M01_First_WPF_Proj
             }
         }
 
-        private void OnButtonClicked(object sender, RoutedEventArgs e)
-        {
-            // Get the button that was pressed
-            if (sender is Button clickedButton)
-            {
-                HandleButtonPress(clickedButton);
-            }
-        }
-
         private void OnCheckClicked(object sender, RoutedEventArgs e)
         {
             if (sender is CheckBox clickedBox)
@@ -213,7 +204,7 @@ namespace M01_First_WPF_Proj
                 return;
             }
 
-            if (sender is Slider mouthSlider)
+            if (sender is Slider)
             {
                 if (mouthSlider.Value > 0)
                 {
@@ -228,77 +219,8 @@ namespace M01_First_WPF_Proj
             }
         }
 
-        // Method to update the respective index based on what button was pressed (should clean up).
-        private void HandleButtonPress(Button button)
-        {
-            switch (button.Name)
-            {
-                case "hair_next":
-                    hairIndex = IncrementChoice(hairIndex, hairImages);
-                    updateHair = true;
-                    break;
-                case "hair_prev":
-                    hairIndex = DecrementChoice(hairIndex, hairImages);
-                    updateHair = true;
-                    break;
-                case "eyes_next":
-                    eyeIndex = IncrementChoice(eyeIndex, eyeImages);
-                    updateEyes = true;
-                    break;
-                case "eyes_prev":
-                    eyeIndex = DecrementChoice(eyeIndex, eyeImages);
-                    updateEyes = true;
-                    break;
-                case "nose_next":
-                    noseIndex = IncrementChoice(noseIndex, noseImages);
-                    updateNose = true;
-                    break;
-                case "nose_prev":
-                    noseIndex = DecrementChoice(noseIndex, noseImages);
-                    updateNose = true;
-                    break;
-                case "mouth_next":
-                    mouthIndex = IncrementChoice(mouthIndex, mouthImages);
-                    updateMouth = true;
-                    break;
-                case "mouth_prev":
-                    mouthIndex = DecrementChoice(mouthIndex, mouthImages);
-                    updateMouth = true;
-                    break;
-                case "randomize":
-                    RandomizeChoice();
-                    break;
-                default:
-                    break;
-            }
-
-            MyImageMethod();
-        }
-
-        // Method to incremenet indexes for their respective lists
-        private static int IncrementChoice(int index, List<BitmapImage> imageList)
-        {
-            if (index < 0 || index >= imageList.Count - 1)
-            {
-                return 0;
-            }
-
-            return index + 1;
-        }
-
-        // Method to decremenet indexes for their respective lists
-        private static int DecrementChoice(int index, List<BitmapImage> imageList)
-        {
-            if (index <= 0) {
-
-                return imageList.Count - 1;
-            }
-
-            return index - 1;
-        }
-
         // Method to randomize the indexes
-        private void RandomizeChoice()
+        private void RandomizeChoice(object sender, RoutedEventArgs e)
         {
             hairIndex = random.Next(0, hairImages.Count);
             eyeIndex = random.Next(0, eyeImages.Count);
@@ -306,6 +228,64 @@ namespace M01_First_WPF_Proj
             mouthIndex = random.Next(0, mouthImages.Count);
 
             updateHair = updateEyes = updateNose = updateMouth = true;
+
+            MyImageMethod();
+
+            UpdateCheckboxes(hairIndex);
+            UpdateComboBox(eyeIndex);
+            UpdateRadioButtons(noseIndex);
+            UpdateSlider(mouthIndex);
+        }
+
+        private void UpdateCheckboxes(int hairIndex)
+        {
+            foreach (var child in hairCheckboxes.Children)
+            {
+                if (child is CheckBox checkBox)
+                {
+                    if (checkBox.Content.ToString() == (hairIndex + 1).ToString())
+                    {
+                        checkBox.IsChecked = true;
+                        selectedCheckboxes.Add(checkBox);
+                    } 
+                    else
+                    {
+                        checkBox.IsChecked = false;
+                        selectedCheckboxes.Remove(checkBox);
+                    }
+                }
+
+
+            }
+        }
+
+        private void UpdateComboBox(int eyeIndex)
+        {
+            foreach (ComboBoxItem item in eyeComboBox.Items)
+            {
+                if (item.Content.ToString() == (eyeIndex + 1).ToString())
+                {
+                    eyeComboBox.SelectedItem = item;
+                    break;
+                }
+            }
+        }
+
+        private void UpdateRadioButtons(int noseIndex)
+        {
+            foreach (var child in radioButtons.Children)
+            {
+                if (child is RadioButton radioButton && radioButton.Content.ToString() == (noseIndex + 1).ToString())
+                {
+                    radioButton.IsChecked = true;
+                    break;
+                }
+            }
+        }
+
+        private void UpdateSlider(int mouthIndex)
+        {
+            mouthSlider.Value = mouthIndex + 1;
         }
     }
 }
