@@ -23,8 +23,13 @@
                     <Border BorderBrush="red" BorderThickness="2" Margin="10" Height="120" Width="120">
                         <StackPanel>
                             <Label Content="Eye Type" Width="76" Margin="10" HorizontalContentAlignment="Center"/>
-                            <Button x:Name="eyes_next" Content="Next" Width="76" Margin="10" Click="OnButtonClicked"/>
-                            <Button x:Name="eyes_prev" Content="Previous" Width="76" Click="OnButtonClicked"/>
+                            <ComboBox x:Name="eyeComboBox" Width="120" HorizontalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="OnComboBoxChanged">
+                                <ComboBox.Items>
+                                    <ComboBoxItem Content="1"/>
+                                    <ComboBoxItem Content="2"/>
+                                    <ComboBoxItem Content="3"/>
+                                </ComboBox.Items>
+                            </ComboBox>
                         </StackPanel>
                     </Border>
                     <Border BorderBrush="red" BorderThickness="2" Margin="10" Height="120" Width="120">

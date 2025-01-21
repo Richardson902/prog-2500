@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -183,6 +184,21 @@ namespace M01_First_WPF_Proj
                     }
                 }
             }
+        }
+
+        private void OnComboBoxChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ComboBox comboBox && comboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                // Retrieve the Content property and show it
+                string selected = selectedItem.Content.ToString();
+
+                eyeIndex = int.Parse(selected) - 1;
+                updateEyes = true;
+                MyImageMethod();
+
+            }
+
         }
 
         // Method to update the respective index based on what button was pressed (should clean up).
