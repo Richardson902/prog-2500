@@ -24,9 +24,6 @@ namespace M01_First_WPF_Proj
         public int NoseIndex { get; private set; } = -1;
         public int MouthIndex { get; private set; } = -1;
 
-        private int increment = +1;
-        private int decrement = -1;
-
         public List<BitmapImage> hairImages { get; private set; } = new List<BitmapImage>();
         public List<BitmapImage> eyeImages { get; private set; } = new List<BitmapImage>();
         public List<BitmapImage> noseImages { get; private set; } = new List<BitmapImage>();
@@ -86,54 +83,38 @@ namespace M01_First_WPF_Proj
         public BitmapImage GetNoseImage() => NoseIndex >= 0 ? noseImages[NoseIndex] : null;
         public BitmapImage GetMouthImage() => MouthIndex >= 0 ? mouthImages[MouthIndex] : null;
 
-        public void IncrementChoice(Category category, List<BitmapImage> imageList)
+        public void Increment(Category category)
         {
-            UpdateChoice(category, increment, imageList);
-        }
 
-        public void DecrementChoice(Category category, List<BitmapImage> imageList)
-        {
-            UpdateChoice(category, decrement, imageList);
-        }
+            //Get list and index based on enum
+            GetReferences(category, out List<BitmapImage> imageList, out int index);
 
-        public void UpdateChoice(Category category, int direction, List<BitmapImage> imageList)
-        {
-            int index = 0;
+            //Increment the index
+            index++;
 
-            switch (category)
+            if (index > imageList.Count -1 || index < 0)
             {
-                case Category.Hair:
-                    index = HairIndex;
-                    break;
-                case Category.Eye:
-                    index = EyeIndex;
-                    break;
-                case Category.Nose:
-                    index = NoseIndex;
-                    break;
-                case Category.Mouth:
-                    index = MouthIndex;
-                    break;
+                index = 0;
             }
 
-            if (imageList.Count > 0)
-            {
-                int newIndex = index + direction;
-
-                if (newIndex < 0)
-                {
-                    newIndex = imageList.Count - 1; // Wrap to last image
-                }
-                else if (newIndex >= imageList.Count)
-                {
-                    newIndex = 0;
-                }
-
-                SetIndex(category, newIndex);
-            }
+            UpdateIndex(category, index);
         }
 
-        private void SetIndex(Category category, int newIndex)
+        public void Decrement(Category category)
+        {
+            GetReferences(category, out List<BitmapImage> imageList, out int index);
+
+            index--;
+
+            if (index < 0)
+            {
+                index = imageList.Count -1;
+            }
+
+            UpdateIndex(category, index);
+        }
+
+        private void UpdateIndex(Category category, int newIndex)
         {
             switch (category)
             {
@@ -150,6 +131,33 @@ namespace M01_First_WPF_Proj
                     MouthIndex = newIndex;
                     break;
             }
+        }
+
+        public void GetReferences(Category category, out List<BitmapImage> imageList, out int index)
+        {
+            imageList = null;
+            index = 0;
+
+            switch (category)
+            {
+                case Category.Hair:
+                    imageList = hairImages;
+                    index = HairIndex;
+                    break;
+                case Category.Eye:
+                    imageList = eyeImages;
+                    index = EyeIndex;
+                    break;
+                case Category.Nose:
+                    imageList = noseImages;
+                    index = NoseIndex;
+                    break;
+                case Category.Mouth:
+                    imageList = mouthImages;
+                    index = MouthIndex;
+                    break;
+            }
+
         }
     }
 }

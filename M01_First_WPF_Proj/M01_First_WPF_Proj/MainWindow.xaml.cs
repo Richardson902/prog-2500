@@ -12,9 +12,8 @@ namespace M01_First_WPF_Proj
 
     public partial class MainWindow : Window
     {
-
-        private ImageManager imageManager = new ImageManager();
-        CommandHandler cmdHairNext;
+        private CommandHandler cmdHairNext;
+        private CommandHandler cmdHairPrev;
 
 
 
@@ -23,19 +22,25 @@ namespace M01_First_WPF_Proj
         {
             InitializeComponent();
 
-            // Initialize ImageManager
-            imageManager.LoadImages("../../images/hair", "../../images/eyes", "../../images/nose", "../../images/mouth");
+            FaceBuilder.OnImagesUpdated += UpdateCanvas;
+            FaceBuilder.LoadImages();
 
-             cmdHairNext = new CommandHandler(() => FaceBuilder.hairNext(imageManager), true);
+
+            cmdHairNext = new CommandHandler(() => FaceBuilder.HairNext(), true);
+            cmdHairPrev = new CommandHandler(() => FaceBuilder.HairPrev(), true);
+
+
+            
 
         DataContext = new
             {
-                nextHairCMD = cmdHairNext
+                nextHairCMD = cmdHairNext,
+                prevHairCMD = cmdHairPrev
             };
 
             InputBindings.Add(new KeyBinding(cmdHairNext, new KeyGesture(Key.R, ModifierKeys.Control)));
 
-            FaceBuilder.CanvasUpdateRequested += UpdateCanvas;
+
             
         }
 
@@ -43,10 +48,10 @@ namespace M01_First_WPF_Proj
         {
             myCanvas.Children.Clear();
 
-            DrawImage(imageManager.GetHairImage(), 0, 0);
-            DrawImage(imageManager.GetEyeImage(), 0, 250);
-            DrawImage(imageManager.GetNoseImage(), 0, 500);
-            DrawImage(imageManager.GetMouthImage(), 0, 750);
+            DrawImage(FaceBuilder.GetHairImage(), 0, 0);
+            DrawImage(FaceBuilder.GetEyeImage(), 0, 250);
+            DrawImage(FaceBuilder.GetNoseImage(), 0, 500);
+            DrawImage(FaceBuilder.GetMouthImage(), 0, 750);
 
         }
 
@@ -63,17 +68,13 @@ namespace M01_First_WPF_Proj
 
         private void OnButtonClicked(object sender, RoutedEventArgs e)
         {
-            //// Get the button that was pressed
-            //if (sender is Button clickedButton)
-            //{
-            //    HandleButtonPress(clickedButton);
-            //}
+
         }
 
         // Method to randomize the indexes
         private void RandomizeChoice(object sender, RoutedEventArgs e)
         {
-            imageManager.RandomizeIndexes();
+            //imageManager.RandomizeIndexes();
         }
     }
 }

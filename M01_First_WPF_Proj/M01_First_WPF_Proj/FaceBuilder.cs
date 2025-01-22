@@ -10,15 +10,34 @@ namespace M01_First_WPF_Proj
 {
     public  static class FaceBuilder
     {
-        public static event Action CanvasUpdateRequested;
+        private static ImageManager imageManager = new ImageManager();
 
-        public  static void hairNext(ImageManager imageManager)
+        public static event Action OnImagesUpdated;
+
+        public static void LoadImages()
         {
-            MessageBox.Show($"Hair images count: {imageManager.hairImages.Count}");
-            imageManager.IncrementChoice(ImageManager.Category.Hair, imageManager.hairImages);
+            imageManager.LoadImages("../../images/hair", "../../images/eyes", "../../images/nose", "../../images/mouth");
+        }
 
-            CanvasUpdateRequested?.Invoke();
-        } 
+        public static void HairNext()
+        {
+            imageManager.Increment(ImageManager.Category.Hair);
+            OnImagesUpdated?.Invoke();
 
+
+        }
+
+        public static void HairPrev()
+        {
+            imageManager.Decrement(ImageManager.Category.Hair);
+            OnImagesUpdated?.Invoke();
+
+
+        }
+
+        public static BitmapImage GetHairImage() => imageManager.GetHairImage();
+        public static BitmapImage GetEyeImage() => imageManager.GetEyeImage();
+        public static BitmapImage GetNoseImage() => imageManager.GetNoseImage();
+        public static BitmapImage GetMouthImage() => imageManager.GetMouthImage();
     }
 }

@@ -16,7 +16,7 @@
                         <MenuItem Header="_Random Face" Click="OnButtonClicked"  InputGestureText="ctrl+r" />
                         <MenuItem Header="_Hairsyle">
                             <MenuItem Header="_Next" Command="{Binding nextHairCMD}" InputGestureText="ctrl+r"/>
-                            <MenuItem Header="_Prev" Click="OnButtonClicked" InputGestureText="h+["/>
+                            <MenuItem Header="_Prev" Command="{Binding prevHairCMD}" InputGestureText="h+["/>
                         </MenuItem>
                     </MenuItem>
                     <MenuItem Header="MenuItem" />
