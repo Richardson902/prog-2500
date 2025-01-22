@@ -14,8 +14,10 @@ namespace M01_First_WPF_Proj
     {
 
         private ImageManager imageManager = new ImageManager();
+        CommandHandler cmdHairNext;
 
-        private CommandHandler cmdHairNext = new CommandHandler(FaceBuilder.hairNext, true);
+
+
 
         public MainWindow()
         {
@@ -24,16 +26,20 @@ namespace M01_First_WPF_Proj
             // Initialize ImageManager
             imageManager.LoadImages("../../images/hair", "../../images/eyes", "../../images/nose", "../../images/mouth");
 
-            DataContext = new
+             cmdHairNext = new CommandHandler(() => FaceBuilder.hairNext(imageManager), true);
+
+        DataContext = new
             {
                 nextHairCMD = cmdHairNext
             };
 
             InputBindings.Add(new KeyBinding(cmdHairNext, new KeyGesture(Key.R, ModifierKeys.Control)));
+
+            FaceBuilder.CanvasUpdateRequested += UpdateCanvas;
             
         }
 
-        private void UpdateCanvas()
+        public void UpdateCanvas()
         {
             myCanvas.Children.Clear();
 
@@ -62,28 +68,6 @@ namespace M01_First_WPF_Proj
             //{
             //    HandleButtonPress(clickedButton);
             //}
-        }
-
-        // Method to incremenet indexes for their respective lists
-        private static int IncrementChoice(int index, List<BitmapImage> imageList)
-        {
-            if (index < 0 || index >= imageList.Count - 1)
-            {
-                return 0;
-            }
-
-            return index + 1;
-        }
-
-        // Method to decremenet indexes for their respective lists
-        private static int DecrementChoice(int index, List<BitmapImage> imageList)
-        {
-            if (index <= 0) {
-
-                return imageList.Count - 1;
-            }
-
-            return index - 1;
         }
 
         // Method to randomize the indexes
