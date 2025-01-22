@@ -9,7 +9,21 @@
     <Grid x:Name="myGrid">
         <Canvas x:Name="myCanvas" HorizontalAlignment="Left" Height="1000" Margin="230,17,0,0" VerticalAlignment="Top" Width="1000"/>
         <Grid x:Name="myGrid2" Margin="0,0,1030, 290">
-            <Border BorderBrush="Black"  BorderThickness="2" Margin="10,10,-10,-10" HorizontalAlignment="Left" >
+            <Menu x:Name="menu" IsMainMenu="True" Height="20" Margin="10,0,0,0" VerticalAlignment="Top" >
+                <MenuItem Header="MainMenu">
+                    <MenuItem Header="_Face" >
+                        <MenuItem Header="_New Face" Click="OnButtonClicked" InputGestureText="ctrl+n" />
+                        <MenuItem Header="_Random Face" Click="OnButtonClicked"  InputGestureText="ctrl+r" />
+                        <MenuItem Header="_Hairsyle">
+                            <MenuItem Header="_Next" Command="{Binding nextHairCMD}" InputGestureText="ctrl+r"/>
+                            <MenuItem Header="_Prev" Click="OnButtonClicked" InputGestureText="h+["/>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="MenuItem" />
+                    <MenuItem Header="MenuItem" />
+                </MenuItem>
+            </Menu>
+            <Border BorderBrush="Black"  BorderThickness="2" Margin="10,40,-10,-10" HorizontalAlignment="Left" >
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                     <Border BorderBrush="red"  BorderThickness="2" Margin="10" Height="120" Width="120">
                         <StackPanel>
