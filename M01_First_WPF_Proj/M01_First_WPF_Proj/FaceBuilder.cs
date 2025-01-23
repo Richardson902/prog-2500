@@ -12,6 +12,7 @@ namespace M01_First_WPF_Proj
     {
         private static ImageManager imageManager = new ImageManager();
 
+        // Invokable to tell the main window to update canvas
         public static event Action OnImagesUpdated;
 
         public static void LoadImages()
@@ -23,16 +24,12 @@ namespace M01_First_WPF_Proj
         {
             imageManager.Increment(ImageManager.Category.Hair);
             OnImagesUpdated?.Invoke();
-
-
         }
 
         public static void HairPrev()
         {
             imageManager.Decrement(ImageManager.Category.Hair);
             OnImagesUpdated?.Invoke();
-
-
         }
 
         public static void EyesNext()
@@ -71,9 +68,28 @@ namespace M01_First_WPF_Proj
             OnImagesUpdated?.Invoke();
         }
 
+        public static void Randomize()
+        {
+            imageManager.RandomizeIndexes();
+            OnImagesUpdated?.Invoke();
+        }
+
+        public static void ClearCanvas()
+        {
+            imageManager.ClearImages();
+            OnImagesUpdated?.Invoke();
+        }
+
+        // Gets the images at current indexes from image manager
         public static BitmapImage GetHairImage() => imageManager.GetHairImage();
         public static BitmapImage GetEyeImage() => imageManager.GetEyeImage();
         public static BitmapImage GetNoseImage() => imageManager.GetNoseImage();
         public static BitmapImage GetMouthImage() => imageManager.GetMouthImage();
+
+        // Gets current flags from image manager
+        public static bool IsUpdateHair => imageManager.UpdateHair;
+        public static bool IsUpdateEyes => imageManager.UpdateEyes;
+        public static bool IsUpdateNose => imageManager.UpdateNose;
+        public static bool IsUpdateMouth => imageManager.UpdateMouth;
     }
 }

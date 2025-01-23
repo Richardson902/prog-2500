@@ -29,8 +29,13 @@ namespace M01_First_WPF_Proj
         public List<BitmapImage> noseImages { get; private set; } = new List<BitmapImage>();
         public List<BitmapImage> mouthImages { get; private set; } = new List<BitmapImage>();
 
+        public bool UpdateHair { get; private set; }
+        public bool UpdateEyes { get; private set; }
+        public bool UpdateNose { get; private set; }
+        public bool UpdateMouth { get; private set; }
 
-        private Random random = new Random();
+
+        private readonly Random random = new Random();
 
         public void LoadImages(string hairPath, string eyePath, string nosePath, string mouthPath)
         {
@@ -75,6 +80,8 @@ namespace M01_First_WPF_Proj
             EyeIndex = random.Next(0, eyeImages.Count);
             NoseIndex = random.Next(0, noseImages.Count);
             MouthIndex = random.Next(0, mouthImages.Count);
+
+            UpdateHair = UpdateEyes = UpdateNose = UpdateMouth = true;
         }
 
         // Get current images based on the indexes
@@ -92,6 +99,7 @@ namespace M01_First_WPF_Proj
             //Increment the index
             index++;
 
+            // Wrap if index exceeds list count
             if (index > imageList.Count -1 || index < 0)
             {
                 index = 0;
@@ -106,6 +114,7 @@ namespace M01_First_WPF_Proj
 
             index--;
 
+            // Wrap if index is less than 0
             if (index < 0)
             {
                 index = imageList.Count -1;
@@ -114,25 +123,31 @@ namespace M01_First_WPF_Proj
             UpdateIndex(category, index);
         }
 
+        // Updates indexes and sets corresponding flags to true
         private void UpdateIndex(Category category, int newIndex)
         {
             switch (category)
             {
                 case Category.Hair:
                     HairIndex = newIndex;
+                    UpdateHair = true;
                     break;
                 case Category.Eye:
                     EyeIndex = newIndex;
+                    UpdateEyes = true;
                     break;
                 case Category.Nose:
                     NoseIndex = newIndex;
+                    UpdateNose = true;
                     break;
                 case Category.Mouth:
                     MouthIndex = newIndex;
+                    UpdateMouth = true;
                     break;
             }
         }
 
+        // Retrieves the image list and current index for the specified category
         public void GetReferences(Category category, out List<BitmapImage> imageList, out int index)
         {
             imageList = null;
@@ -158,6 +173,14 @@ namespace M01_First_WPF_Proj
                     break;
             }
 
+        }
+        
+        // Sets flags to false and resets indexes to -1 (prob bad idea, works for now)
+        public void ClearImages()
+        {
+            UpdateHair = UpdateEyes = UpdateNose = UpdateMouth = false;
+
+            HairIndex = EyeIndex = NoseIndex = MouthIndex = -1;
         }
     }
 }
