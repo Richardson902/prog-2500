@@ -14,9 +14,12 @@ namespace M01_First_WPF_Proj
     {
         private CommandHandler cmdHairNext;
         private CommandHandler cmdHairPrev;
-
-
-
+        private CommandHandler cmdEyesNext;
+        private CommandHandler cmdEyesPrev;
+        private CommandHandler cmdNoseNext;
+        private CommandHandler cmdNosePrev;
+        private CommandHandler cmdMouthNext;
+        private CommandHandler cmdMouthPrev;
 
         public MainWindow()
         {
@@ -25,23 +28,28 @@ namespace M01_First_WPF_Proj
             FaceBuilder.OnImagesUpdated += UpdateCanvas;
             FaceBuilder.LoadImages();
 
-
             cmdHairNext = new CommandHandler(() => FaceBuilder.HairNext(), true);
             cmdHairPrev = new CommandHandler(() => FaceBuilder.HairPrev(), true);
+            cmdEyesNext = new CommandHandler(() => FaceBuilder.EyesNext(), true);
+            cmdEyesPrev = new CommandHandler(() => FaceBuilder.EyesPrev(), true);
+            cmdNoseNext = new CommandHandler(() => FaceBuilder.NoseNext(), true);
+            cmdNosePrev = new CommandHandler(() => FaceBuilder.NosePrev(), true);
+            cmdMouthNext = new CommandHandler(() => FaceBuilder.MouthNext(), true);
+            cmdMouthPrev = new CommandHandler(() => FaceBuilder.MouthPrev(), true);
 
-
-            
-
-        DataContext = new
+            DataContext = new
             {
                 nextHairCMD = cmdHairNext,
-                prevHairCMD = cmdHairPrev
+                prevHairCMD = cmdHairPrev,
+                nextEyesCMD = cmdEyesNext,
+                prevEyesCMD = cmdEyesPrev,
+                nextNoseCMD = cmdNoseNext,
+                prevNoseCMD = cmdNosePrev,
+                nextMouthCMD = cmdMouthNext,
+                prevMouthCMD = cmdMouthPrev
             };
 
             InputBindings.Add(new KeyBinding(cmdHairNext, new KeyGesture(Key.R, ModifierKeys.Control)));
-
-
-            
         }
 
         public void UpdateCanvas()
@@ -52,7 +60,6 @@ namespace M01_First_WPF_Proj
             DrawImage(FaceBuilder.GetEyeImage(), 0, 250);
             DrawImage(FaceBuilder.GetNoseImage(), 0, 500);
             DrawImage(FaceBuilder.GetMouthImage(), 0, 750);
-
         }
 
         private void DrawImage(BitmapImage image, double left, double top)

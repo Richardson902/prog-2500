@@ -18,6 +18,18 @@
                             <MenuItem Header="_Next" Command="{Binding nextHairCMD}" InputGestureText="ctrl+r"/>
                             <MenuItem Header="_Prev" Command="{Binding prevHairCMD}" InputGestureText="h+["/>
                         </MenuItem>
+                        <MenuItem Header="_Eye Type">
+                            <MenuItem Header="_Next" Command="{Binding nextEyesCMD}"/>
+                            <MenuItem Header="_Prev" Command="{Binding prevEyesCMD}"/>
+                        </MenuItem>
+                        <MenuItem Header="_Nose Type">
+                            <MenuItem Header="_Next" Command="{Binding nextNoseCMD}"/>
+                            <MenuItem Header="_Prev" Command="{Binding prevNoseCMD}"/>
+                        </MenuItem>
+                        <MenuItem Header="_Mouth Type">
+                            <MenuItem Header="_Next" Command="{Binding nextMouthCMD}"/>
+                            <MenuItem Header="_Prev" Command="{Binding prevMouthCMD}"/>
+                        </MenuItem>
                     </MenuItem>
                     <MenuItem Header="MenuItem" />
                     <MenuItem Header="MenuItem" />

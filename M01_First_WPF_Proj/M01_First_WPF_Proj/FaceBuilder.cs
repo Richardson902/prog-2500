@@ -35,6 +35,42 @@ namespace M01_First_WPF_Proj
 
         }
 
+        public static void EyesNext()
+        {
+            imageManager.Increment(ImageManager.Category.Eye);
+            OnImagesUpdated?.Invoke();
+        }
+
+        public static void EyesPrev()
+        {
+            imageManager.Decrement(ImageManager.Category.Eye);
+            OnImagesUpdated?.Invoke();
+        }
+
+        public static void NoseNext()
+        {
+            imageManager.Increment(ImageManager.Category.Nose);
+            OnImagesUpdated?.Invoke();
+        }
+
+        public static void NosePrev()
+        {
+            imageManager.Decrement(ImageManager.Category.Nose);
+            OnImagesUpdated?.Invoke();
+        }
+
+        public static void MouthNext()
+        {
+            imageManager.Increment(ImageManager.Category.Mouth);
+            OnImagesUpdated?.Invoke();
+        }
+
+        public static void MouthPrev()
+        {
+            imageManager.Decrement(ImageManager.Category.Mouth);
+            OnImagesUpdated?.Invoke();
+        }
+
         public static BitmapImage GetHairImage() => imageManager.GetHairImage();
         public static BitmapImage GetEyeImage() => imageManager.GetEyeImage();
         public static BitmapImage GetNoseImage() => imageManager.GetNoseImage();
