@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -23,6 +24,9 @@ namespace M01_First_WPF_Proj
         private CommandHandler cmdMouthPrev;
         private CommandHandler cmdRandomize;
         private CommandHandler cmdClearFace;
+        private CommandHandler cmdHelpKeybinds;
+        private CommandHandler cmdHelpAbout;
+        private CommandHandler cmdHelpImages;
 
         public MainWindow()
         {
@@ -89,6 +93,9 @@ namespace M01_First_WPF_Proj
             cmdMouthPrev = new CommandHandler(() => FaceBuilder.MouthPrev(), true);
             cmdRandomize = new CommandHandler(() => FaceBuilder.Randomize(), true);
             cmdClearFace = new CommandHandler(() => FaceBuilder.ClearCanvas(), true);
+            cmdHelpKeybinds = new CommandHandler(() => HelpManager.DisplayKeyBindings(), true);
+            cmdHelpAbout = new CommandHandler(() => HelpManager.DisplayAbout(), true);
+            cmdHelpImages = new CommandHandler(() => HelpManager.DisplayAddImages(), true);
 
             DataContext = new
             {
@@ -101,7 +108,10 @@ namespace M01_First_WPF_Proj
                 nextMouthCMD = cmdMouthNext,
                 prevMouthCMD = cmdMouthPrev,
                 randomizeCMD = cmdRandomize,
-                clearFaceCMD = cmdClearFace
+                clearFaceCMD = cmdClearFace,
+                helpKeybindsCMD = cmdHelpKeybinds,
+                helpAboutCMD = cmdHelpAbout,
+                helpImagesCMD = cmdHelpImages
             };
 
             InputBindings.Add(new KeyBinding(cmdRandomize, new KeyGesture(Key.R, ModifierKeys.Control)));

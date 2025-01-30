@@ -28,6 +28,12 @@
                     <MenuItem Header="_Prev" Command="{Binding prevMouthCMD}" InputGestureText="CTRL+ Z"/>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="_Keybinds" Command="{Binding helpKeybindsCMD}"/>
+                <MenuItem Header="_About" Command="{Binding helpAboutCMD}"/>
+                <MenuItem Header="_Adding Images" Command="{Binding helpImagesCMD}"/>
+                <MenuItem Header="_More Help"/>
+            </MenuItem>
         </Menu>
 
         <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center">
