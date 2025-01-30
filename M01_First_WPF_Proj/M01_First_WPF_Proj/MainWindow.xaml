@@ -32,7 +32,7 @@
                 <MenuItem Header="_Keybinds" Command="{Binding helpKeybindsCMD}"/>
                 <MenuItem Header="_About" Command="{Binding helpAboutCMD}"/>
                 <MenuItem Header="_Adding Images" Command="{Binding helpImagesCMD}"/>
-                <MenuItem Header="_More Help"/>
+                <MenuItem Header="_More Help" Command="{Binding moreHelpCMD}"/>
             </MenuItem>
         </Menu>
 

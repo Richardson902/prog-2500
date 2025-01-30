@@ -14,6 +14,7 @@ namespace M01_First_WPF_Proj
         private static string keybindHelp = "ShortcutKeys.htm";
         private static string aboutHelp = "Overview.htm";
         private static string imageHelp = "AddingImages.htm";
+        private static string helpURL = "https://richardson902.github.io/face-builder-help/Overview.html";
 
 
         public static void DisplayKeyBindings()
@@ -32,6 +33,11 @@ namespace M01_First_WPF_Proj
         {
             HelpNavigator navTopic = HelpNavigator.Topic;
             Help.ShowHelp(null, helpPath, navTopic, imageHelp);
+        }
+
+        public static void OpenAdditionHelp()
+        {
+            Help.ShowHelp(null, helpURL);
         }
     }
 }

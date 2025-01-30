@@ -27,6 +27,7 @@ namespace M01_First_WPF_Proj
         private CommandHandler cmdHelpKeybinds;
         private CommandHandler cmdHelpAbout;
         private CommandHandler cmdHelpImages;
+        private CommandHandler cmdMoreHelp;
 
         public MainWindow()
         {
@@ -96,6 +97,7 @@ namespace M01_First_WPF_Proj
             cmdHelpKeybinds = new CommandHandler(() => HelpManager.DisplayKeyBindings(), true);
             cmdHelpAbout = new CommandHandler(() => HelpManager.DisplayAbout(), true);
             cmdHelpImages = new CommandHandler(() => HelpManager.DisplayAddImages(), true);
+            cmdMoreHelp = new CommandHandler(() => HelpManager.OpenAdditionHelp(), true);
 
             DataContext = new
             {
@@ -111,7 +113,8 @@ namespace M01_First_WPF_Proj
                 clearFaceCMD = cmdClearFace,
                 helpKeybindsCMD = cmdHelpKeybinds,
                 helpAboutCMD = cmdHelpAbout,
-                helpImagesCMD = cmdHelpImages
+                helpImagesCMD = cmdHelpImages,
+                moreHelpCMD = cmdMoreHelp
             };
 
             InputBindings.Add(new KeyBinding(cmdRandomize, new KeyGesture(Key.R, ModifierKeys.Control)));
