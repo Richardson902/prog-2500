@@ -6,73 +6,73 @@
         xmlns:local="clr-namespace:M01_First_WPF_Proj"
         mc:Ignorable="d"
         Title="MainWindow" Height="1050" Width="1250">
-    <Grid x:Name="myGrid">
-        <Canvas x:Name="myCanvas" HorizontalAlignment="Left" Height="1000" Margin="230,17,0,0" VerticalAlignment="Top" Width="1000"/>
-        <Grid x:Name="myGrid2" Margin="0,0,1030, 290">
-            <Menu x:Name="menu" IsMainMenu="True" Height="20" Margin="10,0,0,0" VerticalAlignment="Top">
-                <MenuItem Header="MainMenu">
-                    <MenuItem Header="_Face" >
-                        <MenuItem Header="_Clear Face" Command="{Binding clearFaceCMD}" InputGestureText="CTRL + C"/>
-                        <MenuItem Header="_Random Face" Command="{Binding randomizeCMD}"  InputGestureText="CTRL + R"/>
-                        <MenuItem Header="_Hairsyle">
-                            <MenuItem Header="_Next" Command="{Binding nextHairCMD}" InputGestureText="CTRL + 2"/>
-                            <MenuItem Header="_Prev" Command="{Binding prevHairCMD}" InputGestureText="CTRL + 1"/>
-                        </MenuItem>
-                        <MenuItem Header="_Eye Type">
-                            <MenuItem Header="_Next" Command="{Binding nextEyesCMD}" InputGestureText="CTRL + W"/>
-                            <MenuItem Header="_Prev" Command="{Binding prevEyesCMD}" InputGestureText="CTRL + Q"/>
-                        </MenuItem>
-                        <MenuItem Header="_Nose Type">
-                            <MenuItem Header="_Next" Command="{Binding nextNoseCMD}" InputGestureText="CTRL+ S"/>
-                            <MenuItem Header="_Prev" Command="{Binding prevNoseCMD}" InputGestureText="CTRL+ A"/>
-                        </MenuItem>
-                        <MenuItem Header="_Mouth Type">
-                            <MenuItem Header="_Next" Command="{Binding nextMouthCMD}" InputGestureText="CTRL+ X"/>
-                            <MenuItem Header="_Prev" Command="{Binding prevMouthCMD}" InputGestureText="CTRL+ Z"/>
-                        </MenuItem>
-                    </MenuItem>
-                    <MenuItem Header="Place Holder"/>
-                    <MenuItem Header="Place Holder"/>
+    <DockPanel>
+        <Menu x:Name="menu" DockPanel.Dock="Top">
+            <MenuItem Header="Face">
+                <MenuItem Header="_Clear Face" Command="{Binding clearFaceCMD}" InputGestureText="CTRL + C"/>
+                <MenuItem Header="_Random Face" Command="{Binding randomizeCMD}"  InputGestureText="CTRL + R"/>
+                <MenuItem Header="_Hairsyle">
+                    <MenuItem Header="_Next" Command="{Binding nextHairCMD}" InputGestureText="CTRL + 2"/>
+                    <MenuItem Header="_Prev" Command="{Binding prevHairCMD}" InputGestureText="CTRL + 1"/>
                 </MenuItem>
-            </Menu>
-            <Border BorderBrush="Black"  BorderThickness="2" Margin="10,40,-10,-10" HorizontalAlignment="Left">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                    <Border BorderBrush="red" BorderThickness="2" Margin="10" Height="120" Width="120">
-                        <StackPanel>
-                            <Label Content="Hairstyle" Width="76" Margin="10" HorizontalContentAlignment="Center"/>
-                            <Button x:Name="hair_next" Content="Next" Width="76" Margin="10" Command="{Binding nextHairCMD}"/>
-                            <Button x:Name="hair_prev" Content="Previous" Width="76" Command="{Binding prevHairCMD}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderBrush="red" BorderThickness="2" Margin="10" Height="120" Width="120">
-                        <StackPanel>
-                            <Label Content="Eye Type" Width="76" Margin="10" HorizontalContentAlignment="Center"/>
-                            <Button x:Name="eyes_next" Content="Next" Width="76" Margin="10" Command="{Binding nextEyesCMD}"/>
-                            <Button x:Name="eyes_prev" Content="Previous" Width="76" Command="{Binding prevEyesCMD}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderBrush="red" BorderThickness="2" Margin="10" Height="120" Width="120">
-                        <StackPanel>
-                            <Label Content="Nose" Width="76" Margin="10" HorizontalContentAlignment="Center"/>
-                            <Button x:Name="nose_next" Content="Next" Width="76" Margin="10" Command="{Binding nextNoseCMD}"/>
-                            <Button x:Name="nose_prev" Content="Previous" Width="76" Command="{Binding prevNoseCMD}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderBrush="red" BorderThickness="2" Margin="10" Height="120" Width="120">
-                        <StackPanel>
-                            <Label Content="Mouth" Width="76" Margin="10" HorizontalContentAlignment="Center"/>
-                            <Button x:Name="mouth_next" Content="Next" Width="76" Margin="10" Command="{Binding nextMouthCMD}"/>
-                            <Button x:Name="mouth_prev" Content="Previous" Width="76" Command="{Binding prevMouthCMD}"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderBrush="purple" BorderThickness="2" Margin="10" Height="120" Width="120">
-                        <StackPanel>
-                            <Label Content="Randomize" Width="76" Margin="10" HorizontalContentAlignment="Center"/>
-                            <Button x:Name="randomize" Content="Random" Width="76" Margin="10" Command="{Binding randomizeCMD}"/>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-            </Border>
-        </Grid>
-    </Grid>
+                <MenuItem Header="_Eye Type">
+                    <MenuItem Header="_Next" Command="{Binding nextEyesCMD}" InputGestureText="CTRL + W"/>
+                    <MenuItem Header="_Prev" Command="{Binding prevEyesCMD}" InputGestureText="CTRL + Q"/>
+                </MenuItem>
+                <MenuItem Header="_Nose Type">
+                    <MenuItem Header="_Next" Command="{Binding nextNoseCMD}" InputGestureText="CTRL+ S"/>
+                    <MenuItem Header="_Prev" Command="{Binding prevNoseCMD}" InputGestureText="CTRL+ A"/>
+                </MenuItem>
+                <MenuItem Header="_Mouth Type">
+                    <MenuItem Header="_Next" Command="{Binding nextMouthCMD}" InputGestureText="CTRL+ X"/>
+                    <MenuItem Header="_Prev" Command="{Binding prevMouthCMD}" InputGestureText="CTRL+ Z"/>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center">
+            <StackPanel Background="LightGray">
+                <Border BorderBrush="DarkGray" BorderThickness="2" Margin="10">
+                    <StackPanel Background="White">
+                        <Label Content="Hairstyle" Width="76" Margin="5" HorizontalContentAlignment="Center"/>
+                        <Button x:Name="hair_next" Content="Next" Width="76" Margin="0,0,0,5" Command="{Binding nextHairCMD}"/>
+                        <Button x:Name="hair_prev" Content="Previous" Width="76" Margin="0,0,0,10" Command="{Binding prevHairCMD}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderBrush="DarkGray" BorderThickness="2" Margin="10">
+                    <StackPanel Background="White">
+                        <Label Content="Eye Type" Width="76" Margin="5" HorizontalContentAlignment="Center"/>
+                        <Button x:Name="eyes_next" Content="Next" Width="76" Margin="0,0,0,5" Command="{Binding nextEyesCMD}"/>
+                        <Button x:Name="eyes_prev" Content="Previous" Width="76" Margin="0,0,0,10" Command="{Binding prevEyesCMD}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderBrush="DarkGray" BorderThickness="2" Margin="10">
+                    <StackPanel Background="White">
+                        <Label Content="Nose" Width="76" Margin="5" HorizontalContentAlignment="Center"/>
+                        <Button x:Name="nose_next" Content="Next" Width="76" Margin="0,0,0,5" Command="{Binding nextNoseCMD}"/>
+                        <Button x:Name="nose_prev" Content="Previous" Width="76" Margin="0,0,0,10" Command="{Binding prevNoseCMD}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderBrush="DarkGray" BorderThickness="2" Margin="10">
+                    <StackPanel Background="White">
+                        <Label Content="Mouth" Width="76" Margin="5" HorizontalContentAlignment="Center"/>
+                        <Button x:Name="mouth_next" Content="Next" Width="76" Margin="0,0,0,5" Command="{Binding nextMouthCMD}"/>
+                        <Button x:Name="mouth_prev" Content="Previous" Width="76" Margin="0,0,0,10" Command="{Binding prevMouthCMD}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderBrush="DarkGray" BorderThickness="2" Margin="10">
+                    <StackPanel Background="White">
+                        <Label Content="Randomize" Width="76" Margin="5" HorizontalContentAlignment="Center"/>
+                        <Button x:Name="randomize" Content="Random" Width="76" Margin="0,0,0,10" Command="{Binding randomizeCMD}"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+        <Canvas x:Name="myCanvas"/>
+    </DockPanel>
 </Window>
