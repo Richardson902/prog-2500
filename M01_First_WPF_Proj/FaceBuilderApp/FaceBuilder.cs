@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace M01_First_WPF_Proj
+namespace FaceBuilderApp
 {
     public  static class FaceBuilder
     {

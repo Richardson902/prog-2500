@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace M01_First_WPF_Proj
+namespace FaceBuilderApp
 {
     public static class HelpManager
     {

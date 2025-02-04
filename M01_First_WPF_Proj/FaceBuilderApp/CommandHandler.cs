@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace M01_First_WPF_Proj
+namespace FaceBuilderApp
 {
     internal class CommandHandler : ICommand
 
@@ -30,5 +32,6 @@ namespace M01_First_WPF_Proj
         {
             _action();
         }
+
     }
 }

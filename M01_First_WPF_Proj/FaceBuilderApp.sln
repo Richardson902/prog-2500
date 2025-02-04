@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M01_First_WPF_Proj", "M01_First_WPF_Proj\M01_First_WPF_Proj.csproj", "{D56DD0F1-2A75-4A2C-B733-23C3B5AC9322}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceBuilderApp", "FaceBuilderApp\FaceBuilderApp.csproj", "{D56DD0F1-2A75-4A2C-B733-23C3B5AC9322}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
