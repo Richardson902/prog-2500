@@ -10,86 +10,91 @@ namespace FaceBuilderApp
 {
     public  static class FaceBuilder
     {
-        private static ImageManager imageManager = new ImageManager();
+        private static ImageManager _imageManager = new ImageManager();
+
+        public static ImageManager ImageManager
+        {
+            get { return _imageManager; }
+        }
 
         // Invokable to tell the main window to update canvas
         public static event Action OnImagesUpdated;
 
         public static void LoadImages()
         {
-            imageManager.LoadImages("../../images/hair", "../../images/eyes", "../../images/nose", "../../images/mouth");
+            ImageManager.LoadImages("../../images/hair", "../../images/eyes", "../../images/nose", "../../images/mouth");
         }
 
         public static void HairNext()
         {
-            imageManager.Increment(ImageManager.Category.Hair);
+            ImageManager.Increment(ImageManager.Category.Hair);
             OnImagesUpdated?.Invoke();
         }
 
         public static void HairPrev()
         {
-            imageManager.Decrement(ImageManager.Category.Hair);
+            ImageManager.Decrement(ImageManager.Category.Hair);
             OnImagesUpdated?.Invoke();
         }
 
         public static void EyesNext()
         {
-            imageManager.Increment(ImageManager.Category.Eye);
+            ImageManager.Increment(ImageManager.Category.Eye);
             OnImagesUpdated?.Invoke();
         }
 
         public static void EyesPrev()
         {
-            imageManager.Decrement(ImageManager.Category.Eye);
+            ImageManager.Decrement(ImageManager.Category.Eye);
             OnImagesUpdated?.Invoke();
         }
 
         public static void NoseNext()
         {
-            imageManager.Increment(ImageManager.Category.Nose);
+            ImageManager.Increment(ImageManager.Category.Nose);
             OnImagesUpdated?.Invoke();
         }
 
         public static void NosePrev()
         {
-            imageManager.Decrement(ImageManager.Category.Nose);
+            ImageManager.Decrement(ImageManager.Category.Nose);
             OnImagesUpdated?.Invoke();
         }
 
         public static void MouthNext()
         {
-            imageManager.Increment(ImageManager.Category.Mouth);
+            ImageManager.Increment(ImageManager.Category.Mouth);
             OnImagesUpdated?.Invoke();
         }
 
         public static void MouthPrev()
         {
-            imageManager.Decrement(ImageManager.Category.Mouth);
+            ImageManager.Decrement(ImageManager.Category.Mouth);
             OnImagesUpdated?.Invoke();
         }
 
         public static void Randomize()
         {
-            imageManager.RandomizeIndexes();
+            ImageManager.RandomizeIndexes();
             OnImagesUpdated?.Invoke();
         }
 
         public static void ClearCanvas()
         {
-            imageManager.ClearImages();
+            ImageManager.ClearImages();
             OnImagesUpdated?.Invoke();
         }
 
         // Gets the images at current indexes from image manager
-        public static BitmapImage GetHairImage() => imageManager.GetHairImage();
-        public static BitmapImage GetEyeImage() => imageManager.GetEyeImage();
-        public static BitmapImage GetNoseImage() => imageManager.GetNoseImage();
-        public static BitmapImage GetMouthImage() => imageManager.GetMouthImage();
+        public static BitmapImage GetHairImage() => ImageManager.GetHairImage();
+        public static BitmapImage GetEyeImage() => ImageManager.GetEyeImage();
+        public static BitmapImage GetNoseImage() => ImageManager.GetNoseImage();
+        public static BitmapImage GetMouthImage() => ImageManager.GetMouthImage();
 
         // Gets current flags from image manager
-        public static bool IsUpdateHair => imageManager.UpdateHair;
-        public static bool IsUpdateEyes => imageManager.UpdateEyes;
-        public static bool IsUpdateNose => imageManager.UpdateNose;
-        public static bool IsUpdateMouth => imageManager.UpdateMouth;
+        public static bool IsUpdateHair => ImageManager.UpdateHair;
+        public static bool IsUpdateEyes => ImageManager.UpdateEyes;
+        public static bool IsUpdateNose => ImageManager.UpdateNose;
+        public static bool IsUpdateMouth => ImageManager.UpdateMouth;
     }
 }

@@ -13,7 +13,6 @@ namespace FaceBuilderApp
     //TODO: Save data as text format, save face as png, group into a folder called faces
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +31,7 @@ namespace FaceBuilderApp
         public void UpdateCanvas()
         {
             myCanvas.Children.Clear();
+            summaryCanvas.Children.Clear();
 
             if (FaceBuilder.IsUpdateHair)
             {
@@ -47,9 +47,9 @@ namespace FaceBuilderApp
             {
                 DrawImage(FaceBuilder.GetNoseImage(), 0, 500);
             }
-            
+
             if (FaceBuilder.IsUpdateMouth)
-            { 
+            {
                 DrawImage(FaceBuilder.GetMouthImage(), 0, 750);
             }
         }
@@ -59,10 +59,14 @@ namespace FaceBuilderApp
         {
             if (image != null)
             {
-                Image img = new Image { Source = image };
-                Canvas.SetLeft(img, left);
-                Canvas.SetTop(img, top);
-                myCanvas.Children.Add(img);
+                Image imgCanvas = new Image { Source = image };
+                Image imgSummary = new Image { Source = image };
+                Canvas.SetLeft(imgCanvas, left);
+                Canvas.SetTop(imgCanvas, top);
+                Canvas.SetLeft(imgSummary, left);
+                Canvas.SetTop(imgSummary, top);
+                myCanvas.Children.Add(imgCanvas);
+                summaryCanvas.Children.Add(imgSummary);
             }
         }
 

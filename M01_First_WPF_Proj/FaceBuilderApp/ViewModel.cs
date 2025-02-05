@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace FaceBuilderApp
 {
     public class ViewModel : INotifyPropertyChanged
     {
+        private readonly DataManager _dataManager;
+
         private string _firstName;
 
         public string FirstName
@@ -19,6 +22,100 @@ namespace FaceBuilderApp
             {
                 _firstName = value;
                 OnPropertyChanged(nameof(FirstName));
+            }
+        }
+
+        private string _lastName;
+        public string LastName
+        {
+            get { return _lastName; }
+            set
+            {
+                _lastName = value;
+                OnPropertyChanged(nameof(LastName));
+            }
+        }
+
+        private string _address;
+        public string Address
+        {
+            get { return _address; }
+            set
+            {
+                _address = value;
+                OnPropertyChanged(nameof(Address));
+            }
+        }
+
+        private string _selectedOccupation;
+
+        public ObservableCollection<string> OccupationOptions { get; }
+
+        public string SelectedOccupation
+        {
+            get { return _selectedOccupation; }
+            set
+            {
+                _selectedOccupation = value;
+                OnPropertyChanged(nameof(SelectedOccupation));
+            }
+        }
+
+        private string _selectedHobby;
+
+        public ObservableCollection<string> HobbyOptions { get; }
+        public string SelectedHobby
+        {
+            get { return _selectedHobby; }
+            set
+            {
+                _selectedHobby = value;
+                OnPropertyChanged(nameof(SelectedHobby));
+            }
+        }
+
+        private bool _isDogLover;
+
+        public bool IsDogLover
+        {
+            get { return _isDogLover; }
+            set
+            {
+                _isDogLover = value;
+                OnPropertyChanged(nameof(IsDogLover));
+            }
+        }
+
+        private bool _isCatLover;
+
+        public bool IsCatLover
+        {
+            get { return _isCatLover; }
+            set
+            {
+                _isCatLover = value;
+                OnPropertyChanged(nameof(IsCatLover));
+            }
+        }
+
+        public bool CanSaveFace()
+        {
+            return !string.IsNullOrEmpty(FirstName) &&
+                    !string.IsNullOrEmpty(LastName) &&
+                    !string.IsNullOrEmpty(Address) &&
+                    !string.IsNullOrEmpty(SelectedOccupation) &&
+                    !string.IsNullOrEmpty(SelectedHobby) &&
+                    FaceBuilder.IsUpdateHair &&
+                    FaceBuilder.IsUpdateEyes &&
+                    FaceBuilder.IsUpdateNose &&
+                    FaceBuilder.IsUpdateMouth;
+        }
+
+        private void SaveFace()
+        {
+            if (CanSaveFace()) {
+
+                _dataManager.SaveFaceData(this);
             }
         }
 
@@ -37,9 +134,13 @@ namespace FaceBuilderApp
         public ICommand HelpAboutCommand { get; }
         public ICommand HelpImagesCommand { get; }
         public ICommand MoreHelpCommand { get; }
+        public ICommand SaveFaceCommand { get; }
+        public ICommand ClearFaceDataCommand {  get; }
 
         public ViewModel()
         {
+            _dataManager = new DataManager();
+
             HairNextCommand = new CommandHandler(() => FaceBuilder.HairNext(), true);
             HairPrevCommand = new CommandHandler(() => FaceBuilder.HairPrev(), true);
             EyesNextCommand = new CommandHandler(() => FaceBuilder.EyesNext(), true);
@@ -54,8 +155,11 @@ namespace FaceBuilderApp
             HelpAboutCommand = new CommandHandler(() => HelpManager.DisplayAbout(), true);
             HelpImagesCommand = new CommandHandler(() => HelpManager.DisplayAddImages(), true);
             MoreHelpCommand = new CommandHandler(() => HelpManager.OpenAdditionHelp(), true);
+            SaveFaceCommand = new CommandHandler(() => SaveFace(), true);
+            //ClearFaceDataCommand = new CommandHandler(() => FaceBuilder.ClearData(), true);
 
-            FirstName = "Jimmy";
+            OccupationOptions = new ObservableCollection<string> { "Developer", "Artist", "Designer", "Scientist" };
+            HobbyOptions = new ObservableCollection<string> { "Gaming", "Reading", "Sports", "Hiking" };
             
         }
 
