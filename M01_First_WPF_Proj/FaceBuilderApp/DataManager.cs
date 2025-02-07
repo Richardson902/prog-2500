@@ -9,10 +9,17 @@ namespace FaceBuilderApp
 {
     public class DataManager
     {
+        private string GetFilePath(string firstName, string lastName)
+        {
+            return $"{firstName}_{lastName}.txt";
+        }
+
         public void SaveFaceData(ViewModel model)
         {
+            string filePath = GetFilePath(model.FirstName, model.LastName);
+
             var faceData = new StringBuilder();
-            faceData.AppendLine($"First Name: { model.FirstName}");
+            faceData.AppendLine($"First Name: {model.FirstName}");
             faceData.AppendLine($"Last Name: {model.LastName}");
             faceData.AppendLine($"Address: {model.Address}");
             faceData.AppendLine($"Occupation: {model.SelectedOccupation}");
@@ -24,7 +31,7 @@ namespace FaceBuilderApp
             faceData.AppendLine($"Nose Index: {FaceBuilder.ImageManager.NoseIndex}");
             faceData.AppendLine($"Mouth Index: {FaceBuilder.ImageManager.MouthIndex}");
 
-            File.WriteAllText("faceData.txt", faceData.ToString());
+            File.WriteAllText(filePath, faceData.ToString());
         }
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace FaceBuilderApp
@@ -12,6 +13,17 @@ namespace FaceBuilderApp
     public class ViewModel : INotifyPropertyChanged
     {
         private readonly DataManager _dataManager;
+
+        private int _selectedTabIndex;
+        public int SelectedTabIndex
+        {
+            get { return _selectedTabIndex; }
+            set
+            {
+                _selectedTabIndex = value;
+                OnPropertyChanged(nameof(SelectedTabIndex));
+            }
+        }
 
         private string _firstName;
 
@@ -117,6 +129,21 @@ namespace FaceBuilderApp
 
                 _dataManager.SaveFaceData(this);
             }
+            else
+            {
+                MessageBox.Show("Error. Please make sure all fields are populated and face is built.");
+            }
+        }
+
+        private void ClearData()
+        {
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Address = string.Empty;
+            SelectedOccupation = string.Empty;
+            SelectedHobby = string.Empty;
+            IsDogLover = false;
+            IsCatLover = false;
         }
 
 
@@ -156,7 +183,11 @@ namespace FaceBuilderApp
             HelpImagesCommand = new CommandHandler(() => HelpManager.DisplayAddImages(), true);
             MoreHelpCommand = new CommandHandler(() => HelpManager.OpenAdditionHelp(), true);
             SaveFaceCommand = new CommandHandler(() => SaveFace(), true);
-            //ClearFaceDataCommand = new CommandHandler(() => FaceBuilder.ClearData(), true);
+            ClearFaceDataCommand = new CommandHandler(() => {
+                FaceBuilder.ClearCanvas();
+                ClearData();
+                SelectedTabIndex = 0;
+            }, true);
 
             OccupationOptions = new ObservableCollection<string> { "Developer", "Artist", "Designer", "Scientist" };
             HobbyOptions = new ObservableCollection<string> { "Gaming", "Reading", "Sports", "Hiking" };

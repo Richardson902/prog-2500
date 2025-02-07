@@ -18,7 +18,7 @@
                 <MenuItem Header="Placeholder"/>
                 <MenuItem Header="Placeholder"/>
             </MenuItem>
-            <MenuItem Header="Face">
+            <MenuItem Header="Face" >
                 <MenuItem Header="_Clear Face" Command="{Binding ClearFaceCommand}" InputGestureText="CTRL + C"/>
                 <MenuItem Header="_Random Face" Command="{Binding RandomizeCommand}"  InputGestureText="CTRL + R"/>
                 <MenuItem Header="_Hairsyle">
@@ -47,7 +47,7 @@
         </Menu>
 
         <!-- Tab Control-->
-        <TabControl>
+        <TabControl SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
             <TabItem Header="Personal Info">
                 <!-- Content for Personal Info Tab -->
                 <StackPanel Background="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center">
